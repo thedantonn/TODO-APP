@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore'; // Import Firestore
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyC5uPUHNjehmYYYxp_3QIglLQROHgXh3VI",
     authDomain: "to-do-6586f.firebaseapp.com",
@@ -52,14 +53,16 @@ const db = firebase.firestore();
      .orderBy(sortOption)
      .endBefore(firstDoc)
      .limitToLast(limit).get();
+     
 
- export {
-   addTasksToFirebase,
-   updateTaskFromFirebase,
-   deleteTaskFromFirebase,
-   getTasksByName,
-   getTasksByCompleted,
-   getTasksBySorting,
-   getTasksNext,
-   getTasksPrev,
- };
+export {
+  addTasksToFirebase,
+  updateTaskFromFirebase,
+  deleteTaskFromFirebase,
+  getTasksByName,
+  getTasksByCompleted,
+  getTasksBySorting,
+  getTasksNext,
+  getTasksPrev,
+
+};

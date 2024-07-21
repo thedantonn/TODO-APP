@@ -7,6 +7,7 @@ export default ({ task, search, setTask, addTask, sortTask, searchByStatus, sear
 
   return (
     <div className="controls-container">
+      <h3 className='heading2'>Add Your Tasks</h3>
       <input
         className="form-control my-2"
         type="text"
@@ -51,6 +52,7 @@ export default ({ task, search, setTask, addTask, sortTask, searchByStatus, sear
       >
         Show Uncompleted
       </button>
+      <h3 className='heading2'>Search Your Tasks</h3>
       <input
         className="form-control my-2"
         type="text"

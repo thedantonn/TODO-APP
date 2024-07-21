@@ -134,12 +134,27 @@ function App() {
 
   return (
     <div className="App">
-      <div className="sidebar">
-        <Controls {...controlsProps} />
-        <Nav {...navProps} />
+      <div className="header-container">
+        <h1 className="heading">TO-DO NOTEPAD</h1>
+        <button className="btn btn-info btn-rules" onClick={() => alert(`Welcome to TODO NOTEPAD, before starting here are some instructions to help you out:
+          - You can add, update, and delete tasks.
+          - Use the search bar to find tasks.
+          - Sort tasks by name or completion status.
+          - Use pagination to navigate through tasks.
+          - Single click on Tasks to mark as completed.
+          - Double click on Tasks to delete `)}>
+          <span className="help-text">Help me out?</span>
+          <i className="fas fa-info-circle"></i>
+        </button>
       </div>
-      <div className="main-content">
-        <List {...listProps} />
+      <div className="main-container">
+        <div className="controls">
+          <Controls {...controlsProps} />
+        </div>
+        <div className="tasks">
+          <List {...listProps} />
+          <Nav {...navProps} />
+        </div>
       </div>
     </div>
   );
