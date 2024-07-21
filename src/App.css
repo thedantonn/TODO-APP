@@ -1,41 +1,104 @@
-/* src/App.css */
-.App {
-  text-align: center;
-  margin: 20px;
+/* App.css */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh; /* Full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #a8e0f9, #ffffff); /* Soothing gradient */
+  background-attachment: fixed; /* Keep the background fixed on scroll */
+  background-size: cover; /* Cover the entire area */
+  position: relative; /* Position relative for absolute elements */
+  animation: gradientAnimation 10s ease infinite; /* Smooth animation */
 }
 
-form {
+/* Subtle gradient animation */
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, #a8e0f9, #ffffff);
+  }
+  50% {
+    background: linear-gradient(135deg, #f8c8dc, #ffffff);
+  }
+  100% {
+    background: linear-gradient(135deg, #a8e0f9, #ffffff);
+  }
+}
+
+.TodoBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px; /* Adjusted width for better fit */
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-input[type="text"] {
-  padding: 10px;
-  margin-right: 10px;
-  width: 300px;
+.heading {
+  font-size: 2rem; /* Font size for heading */
+  font-weight: bold;
+  margin: 0;
+  color: #333; /* Darker color for better contrast */
+}
+
+.btn-rules {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-rules:hover {
+  background-color: #0056b3;
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Space between left and right sections */
+}
+
+.functionality-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-container {
+  flex: 2;
+  background-color: rgba(255, 255, 255, 0.9); /* Background for tasks area */
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+input, button {
+  max-width: 100%;
+  margin: 10px auto;
 }
 
 button {
-  padding: 10px 20px;
-  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 8px; /* Rounded corners for buttons */
+  padding: 10px; /* Padding for better click area */
 }
 
 button:hover {
-  background-color: #ddd;
-}
-
-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-span {
-  flex-grow: 1;
-  margin-left: 10px;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.05); /* Slightly enlarge button on hover */
 }
