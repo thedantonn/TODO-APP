@@ -1,67 +1,63 @@
-export default ({task,search,setTask,addTask,sortTask,searchByStatus,searchTask})=>{
-    return (
-        <>
-            <input
-        className="form-control"
+import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome styles
+import './App.css'; // Import the CSS file for additional styling
+
+export default ({ task, search, setTask, addTask, sortTask, searchByStatus, searchTask }) => {
+  const isButtonDisabled = task.name.trim() === '';
+
+  return (
+    <div className="controls-container">
+      <input
+        className="form-control my-2"
         type="text"
-        onChange={(e) => {
-          setTask(e.target.value);
-        }}
+        onChange={(e) => setTask({ ...task, name: e.target.value })}
         value={task.name}
-        placeholder="enter the task"
-      ></input>
+        placeholder="Enter the task"
+      />
       <button
-        className="btn btn-success w-100"
+        className="btn btn-success w-100 my-2"
         onClick={() => {
-          addTask(task);
+          if (task.name.trim() !== '') {
+            addTask(task);
+          } else {
+            alert('Task name cannot be empty');
+          }
         }}
+        disabled={isButtonDisabled}
       >
-        Change
+        Add Task
       </button>
-      <br></br>
       <button
-        className="btn btn-warning"
-        onClick={() => {
-          sortTask('name');
-        }}
+        className="btn btn-warning w-100 my-2"
+        onClick={() => sortTask('name')}
       >
         Sort by Name
       </button>
       <button
-        className="btn btn-warning"
-        onClick={() => {
-          sortTask('completed');
-        }}
+        className="btn btn-warning w-100 my-2"
+        onClick={() => sortTask('completed')}
       >
         Sort by Completed
       </button>
-      <br></br>
       <button
-        className="btn btn-warning"
-        onClick={() => {
-          searchByStatus(true);
-        }}
+        className="btn btn-info w-100 my-2"
+        onClick={() => searchByStatus(true)}
       >
         Show Completed
       </button>
       <button
-        className="btn btn-warning"
-        onClick={() => {
-          searchByStatus(false);
-        }}
+        className="btn btn-info w-100 my-2"
+        onClick={() => searchByStatus(false)}
       >
-        Show UnCompleted
+        Show Uncompleted
       </button>
-      <br></br>
       <input
-        className="form-control"
+        className="form-control my-2"
         type="text"
-        onChange={(e) => {
-          searchTask(e.target.value);
-        }}
+        onChange={(e) => searchTask(e.target.value)}
         value={search}
-        placeholder="search the task"
-      ></input>
-        </>
-    )
-} 
+        placeholder="Search the task"
+      />
+    </div>
+  );
+};
